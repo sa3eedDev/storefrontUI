@@ -4,17 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { ItemsComponent } from './components/items/items.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ItemsService } from './services/items.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
