@@ -7,12 +7,14 @@ import { HeaderComponent } from './layout/header/header.component';
 import { ItemsComponent } from './components/items/items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsService } from './services/items.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ItemsComponent
+    ItemsComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
