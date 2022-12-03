@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { item } from '../types/item';
+import { cartItem } from '../types/cart';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  cart: item[] = []
+
+  cart: cartItem[] = []
   constructor() { }
 
-  viewCart(): item[]{
+  viewCart(): cartItem[]{
     return this.cart
   }
 
-  addToCart(item: item): void{
-    this.cart.push(item)
+  addToCart(item: item, quantity: number): void{
+    this.cart.push({item, quantity: quantity})
   }
 
   // updateItem(item: item): item{

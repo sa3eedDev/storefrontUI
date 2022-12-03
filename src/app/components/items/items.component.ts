@@ -15,7 +15,7 @@ export class ItemsComponent implements OnInit {
   }
 
   onAdd(product: item){
-    this.cartService.addToCart(product)
+    this.cartService.addToCart(product, 10)
     alert("item added to cart!!")
   }
 
