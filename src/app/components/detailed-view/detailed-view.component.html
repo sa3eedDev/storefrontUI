@@ -1,10 +1,9 @@
-<div class="product-container ">
-    
-    <a routerLink="product/{{product.id}}">
-        <img src="{{product.url}}" alt="{{product.name}}" class="product-image">
-    </a>
-    <p>{{product.name}}</p>
-    <p>${{product.price}}</p>
+<div class="detail-container ">
+
+    <img src="{{item.url}}" alt="{{item.name}}">
+
+    <p class="detail-item ">{{item.description}}</p>
+    <h2>${{item.price}}</h2>
     <select name="quantity" id="quan" #quantity class="select-input">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -19,4 +18,6 @@
 
 
     </select>
-    <button (click)="onAdd(product,quantity.value)">Add to cart</button>
+    <button (click)="onAdd(item,quantity.value)">Add to cart</button>
+    <a href="/" class="back-link">back to product list</a>
+</div>

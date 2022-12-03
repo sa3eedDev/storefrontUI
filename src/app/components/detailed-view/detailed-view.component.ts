@@ -3,12 +3,13 @@ import { CartService } from 'src/app/services/cart.service';
 import { item } from 'src/app/types/item';
 
 @Component({
-  selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  selector: 'app-detailed-view',
+  templateUrl: './detailed-view.component.html',
+  styleUrls: ['./detailed-view.component.css']
 })
-export class ItemsComponent implements OnInit {
-  @Input() product : item;
+export class DetailedViewComponent implements OnInit {
+
+  @Input() item: item;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -19,5 +20,4 @@ export class ItemsComponent implements OnInit {
     console.log(quantity)
     alert("item added to cart!!")
   }
-
 }
