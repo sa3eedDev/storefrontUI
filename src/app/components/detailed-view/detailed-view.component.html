@@ -1,23 +1,25 @@
 <div class="detail-container ">
-
+    
     <img src="{{item.url}}" alt="{{item.name}}">
+    <div class='detail-item' >
+        <h2>{{item.name}}</h2>
+        <p >{{item.description}}</p>
+        <h2>${{item.price}}</h2>
+        <select name="quantity" id="quan" #quantity class="select-input">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
 
-    <p class="detail-item ">{{item.description}}</p>
-    <h2>${{item.price}}</h2>
-    <select name="quantity" id="quan" #quantity class="select-input">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
 
-
-    </select>
-    <button (click)="onAdd(item,quantity.value)">Add to cart</button>
-    <a href="/" class="back-link">back to product list</a>
+        </select>
+        <button (click)="onAdd(item,quantity.value)">Add to cart</button>
+        <a href="/" class="back-link">back to product list</a>
+    </div>
 </div>

@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { ItemsService } from 'src/app/services/items.service';
 import { item } from 'src/app/types/item';
 
 @Component({
@@ -8,11 +10,19 @@ import { item } from 'src/app/types/item';
   styleUrls: ['./detailed-view.component.css']
 })
 export class DetailedViewComponent implements OnInit {
-
-  @Input() item: item;
-  constructor(private cartService: CartService) { }
+  id: number;
+  items: item[];
+  item: item;
+  constructor(private cartService: CartService,
+    private itemsService: ItemsService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = +this.route.snapshot.paramMap.get('id')
+    this.itemsService.getItems().subscribe(res =>{
+      this.item = res.find(x => x.id === this.id)
+    })
+
   }
 
   onAdd(product: item, quantity: string){
@@ -20,4 +30,5 @@ export class DetailedViewComponent implements OnInit {
     console.log(quantity)
     alert("item added to cart!!")
   }
+  
 }
