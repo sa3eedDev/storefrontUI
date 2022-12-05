@@ -1,15 +1,14 @@
 <div class="cart-container">
-
-    <div class="cart-item-details">
-        <div class="cart-item" *ngFor="let item of cart">
+        <div class="cart-item-details cart-panel " *ngIf="cart.length !== 0">
+            <div class="cart-item" *ngFor="let item of cart">
                 <img src="{{item.item.url}}" alt="{{item.item.name}}">
                 <div class="cart-item-details ">
                     <h2>{{item.item.name}}</h2>
                     <p>${{item.item.price}}</p>
-                    <label for="quantity">Amount: </label>
+                <label for="quantity">Amount: </label>
                     <input 
                         type="number" 
-                        min="1" 
+                        min="0" 
                         max="10" 
                         value="{{item.quantity}}" 
                         id="quantity" 
@@ -18,24 +17,28 @@
                         (change)="calculateTotal(); updateCart(item)"
                     >
                 </div>
-            
+                
+            </div>
+
+
+            <h2 >Total: ${{ total }}</h2>
         </div>
 
 
-        <h2 >Total: ${{ total }}</h2>
+        <form #form="ngForm" class="form-margin" *ngIf="cart.length !== 0">
+            <label for="name">Full name</label>
+            <input type="text" required min="3">
+
+            <label for="address">Address</label>
+            <input type="text" required min="6">
+
+            <label for="card">Credit card number</label>
+            <input type="text" required min="16" max="16">
+
+            <button type="submit" [disabled]="form.form.invalid">Submit</button>
+        </form>
+    <div class="empty-cart-message" *ngIf="cart.length === 0">
+        <h3>Cart is empty</h3>
     </div>
-
-    <form class="form-margin">
-        <label for="name">Full name</label>
-        <input type="text">
-
-        <label for="address">Address</label>
-        <input type="text">
-
-        <label for="card">Credit card number</label>
-        <input type="text">
-
-        <button type="submit">Submit</button>
-    </form>
 
 </div>

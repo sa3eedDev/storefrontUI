@@ -20,7 +20,15 @@ export class CartService {
 
   updateItem(item: cartItem): cartItem{
     this.item = this.cart.find(x => x.item.id === item.item.id)
-    this.item.quantity = item.quantity
+    if(item.quantity === 0){
+      this.cart.forEach((product, index )=>{
+        if(item.item.name === product.item.name){
+          this.cart.splice(index,1)
+        }
+      })
+    } else {
+      this.item.quantity = item.quantity
+    }
     return this.item
   }
 

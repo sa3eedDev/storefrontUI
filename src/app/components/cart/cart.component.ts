@@ -26,6 +26,10 @@ export class CartComponent implements OnInit {
 
   updateCart(item: cartItem){
     this.cartService.updateItem(item)
+    if(item.quantity === 0 ){
+      this.cart = this.cartService.viewCart()
+      alert("Itemed removed from cart")
+    }
   }
 
 }
