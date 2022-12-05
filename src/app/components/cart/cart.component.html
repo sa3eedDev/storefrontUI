@@ -7,10 +7,13 @@
                     <h2>{{item.item.name}}</h2>
                     <p>${{item.item.price}}</p>
                     <label for="quantity">Amount: </label>
-                    <input type="number" min="1" max="10" value="{{item.quantity}}" id="quantity" class="number-input">
+                    <input type="number" min="1" max="10" value="{{item.quantity}}" id="quantity" class="number-input" [(ngModel)]="item.quantity" (change)="calculateTotal()">
                 </div>
             
         </div>
+
+
+        <h2 >Total: ${{ total }}</h2>
     </div>
 
     <form class="form-margin">

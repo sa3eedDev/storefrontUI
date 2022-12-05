@@ -10,6 +10,7 @@ import { ItemsService } from './services/items.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { DetailedViewComponent } from './components/detailed-view/detailed-view.component';
 import { CartComponent } from './components/cart/cart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]
