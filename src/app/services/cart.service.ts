@@ -6,7 +6,7 @@ import { cartItem } from '../types/cart';
   providedIn: 'root'
 })
 export class CartService {
-
+  item: cartItem;
   cart: cartItem[] = []
   constructor() { }
 
@@ -18,8 +18,10 @@ export class CartService {
     this.cart.push({item, quantity: quantity})
   }
 
-  // updateItem(item: item): item{
-    
-  // }
+  updateItem(item: cartItem): cartItem{
+    this.item = this.cart.find(x => x.item.id === item.item.id)
+    this.item.quantity = item.quantity
+    return this.item
+  }
 
 }

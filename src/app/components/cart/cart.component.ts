@@ -22,7 +22,10 @@ export class CartComponent implements OnInit {
     this.cart.forEach(item =>{
       this.total += item.item.price * item.quantity
     })
-    console.log("total has benn calculated!")
+  }
+
+  updateCart(item: cartItem){
+    this.cartService.updateItem(item)
   }
 
 }
