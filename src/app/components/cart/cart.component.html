@@ -1,5 +1,5 @@
 <div class="cart-container">
-        <div class="cart-item-details cart-panel " *ngIf="cart.length !== 0">
+        <div class="cart-panel" *ngIf="cart.length !== 0">
             <div class="cart-item" *ngFor="let item of cart">
                 <img src="{{item.item.url}}" alt="{{item.item.name}}">
                 <div class="cart-item-details ">
@@ -20,7 +20,6 @@
                 
             </div>
 
-
             <h2 >Total: ${{ total }}</h2>
         </div>
 
@@ -35,7 +34,13 @@
             <label for="card">Credit card number</label>
             <input type="text" required min="16" max="16">
 
-            <button type="submit" [disabled]="form.form.invalid">Submit</button>
+            <button 
+                type="submit" 
+                [disabled]="form.form.invalid" 
+                routerLink="/confirmation"
+                >
+                Submit
+            </button>
         </form>
     <div class="empty-cart-message" *ngIf="cart.length === 0">
         <h3>Cart is empty</h3>

@@ -11,6 +11,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { DetailedViewComponent } from './components/detailed-view/detailed-view.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     ProductListComponent,
     DetailedViewComponent,
     CartComponent,
+    ConfirmationComponent,
     
   ],
   imports: [
