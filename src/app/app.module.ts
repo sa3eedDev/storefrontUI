@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ItemsService } from './services/items.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { DetailedViewComponent } from './components/detailed-view/detailed-view.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DetailedViewComponent } from './components/detailed-view/detailed-view.
     ItemsComponent,
     ProductListComponent,
     DetailedViewComponent,
+    CartComponent,
     
   ],
   imports: [
