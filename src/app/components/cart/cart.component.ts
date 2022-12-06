@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { cartItem } from 'src/app/types/cart';
+import { order } from 'src/app/types/order';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +13,17 @@ import { cartItem } from 'src/app/types/cart';
 export class CartComponent implements OnInit {
   cart: cartItem[]
   total: number = 0;
-  constructor(private cartService: CartService) { }
+  order: order = {
+    name: "",
+    total: 0,
+    address: "",
+    cart: [],
+    id: 0
+
+  };
+  constructor(private cartService: CartService,
+              private router: Router,
+              private orderService: OrderService ) { }
 
   ngOnInit(): void {
     this.cart = this.cartService.viewCart()
@@ -22,6 +35,7 @@ export class CartComponent implements OnInit {
     this.cart.forEach(item =>{
       this.total += item.item.price * item.quantity
     })
+    this.order.total = this.total
   }
 
   updateCart(item: cartItem){
@@ -30,6 +44,13 @@ export class CartComponent implements OnInit {
       this.cart = this.cartService.viewCart()
       alert("Itemed removed from cart")
     }
+  }
+
+  submitOrder(){
+    this.order.cart = this.cart
+    this.orderService.submitOrder(this.order)
+    alert("Order submited!")
+    this.router.navigate(["confirmation"])
   }
 
 }

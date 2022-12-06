@@ -24,12 +24,12 @@
         </div>
 
 
-        <form #form="ngForm" class="form-margin" *ngIf="cart.length !== 0">
+        <form #form="ngForm" class="form-margin" *ngIf="cart.length !== 0" (ngSubmit)="submitOrder()">
             <label for="name">Full name</label>
-            <input type="text" required min="3">
+            <input type="text" required min="3" [(ngModel)]="order.name" name="full-name">
 
             <label for="address">Address</label>
-            <input type="text" required min="6">
+            <input type="text" required min="6" [(ngModel)]="order.address" name="address">
 
             <label for="card">Credit card number</label>
             <input type="text" required min="16" max="16">
@@ -37,7 +37,6 @@
             <button 
                 type="submit" 
                 [disabled]="form.form.invalid" 
-                routerLink="/confirmation"
                 >
                 Submit
             </button>
