@@ -15,7 +15,12 @@ export class CartService {
   }
 
   addToCart(item: item, quantity: number): void{
-    this.cart.push({item, quantity: quantity})
+    this.item = this.cart.find(x => x.item.id === item.id)
+    if(this.item !== undefined){
+      this.item.quantity += quantity
+    } else {
+      this.cart.push({item, quantity: quantity})
+    }
   }
 
   updateItem(item: cartItem): cartItem{
