@@ -13,6 +13,7 @@ import { order } from 'src/app/types/order';
 export class CartComponent implements OnInit {
   cart: cartItem[]
   total: number = 0;
+  credit: string = "";
   order: order = {
     name: "",
     total: 0,
