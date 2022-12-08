@@ -17,4 +17,8 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  onAdd(event: any){
+    alert(`Added ${event.name} to the cart!`)
+  }
+
 }
