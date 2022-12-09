@@ -1,7 +1,21 @@
 # StoreFront
 
 ## Description 
-This is a store front to display products, and have a cart, build using Angular.
+This is a store front to display products, and have a cart, build using Angular. Used Services like cart, item, and order, to comunicate between components, and to be easily swaped with real APIs. Product list are list by calling the item service and product list to list them. Each product have it own route `/products/:id`. 
+
+### Pages
+
+#### To view cart
+`/cart`
+
+#### To view products
+
+`/`
+
+#### to view Detailed product page
+
+`/products/:id`
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 

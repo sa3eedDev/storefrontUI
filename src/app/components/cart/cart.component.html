@@ -27,7 +27,7 @@
         <form #form="ngForm" class="form-margin" *ngIf="cart.length !== 0" (ngSubmit)="submitOrder()">
             <strong style="color: red;" *ngIf="order.name.length < 3 && order.name.length !== 0 " > Name need to be at least 3 letter long</strong>
             <strong style="color: red;" *ngIf="order.address.length < 6 && order.address.length !== 0 " >Address need to be at least 6 letter long</strong>
-            <strong style="color: red;"  *ngIf="credit.length < 16 && credit.length !== 0">Credit card need to be 16 digits</strong>
+            <strong style="color: red;"  *ngIf="creditInput.invalid">Credit card need to be 16 digits and only numbers</strong>
             <label for="name">Full name</label>
             <input 
                 type="text" 
@@ -51,14 +51,17 @@
 
             <label for="card">Credit card number</label>
             <input 
-                type="text"  
+                type="text" 
                 minlength="16" 
                 maxlength="16"
-                name="credit-card"  
+                pattern="[0-9]*"
+                name="creditcard"  
                 id="creditcard" 
                 placeholder="(Enter 16 digits)" 
                 [(ngModel)]="credit"
+                inputmode="numeric"
                 required
+                #creditInput="ngModel"
             >
 
             <button 
